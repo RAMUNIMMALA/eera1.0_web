@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "NewCourse";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+        <div class="col-md-12">
+            <div class="box-inn-sp admin-form">
+                <div class="sb2-2-add-blog sb2-2-1">
+                    <h2>Add New Course</h2>
+                  
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane fade active in">
+                            <div class="box-inn-sp">
+                                <div class="inn-title">
+                                    <h4>Course Information</h4>
+                                    <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                                </div>
+                                <div class="bor">
+                                    <form>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="list-title" type="text" class="validate">
+                                                <label for="list-title" class="">Course Name</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                                <input id="list-name" type="text" class="validate">
+                                                <label for="list-name">Contact Person</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <textarea class="materialize-textarea"></textarea>
+                                                <label>Course Descriptions:</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">                         
+                                                    <select class="initialized">
+                                                        <option value="" disabled="" selected="">Select Status</option>
+                                                        <option value="1">Active</option>
+                                                        <option value="2">De-Active</option>
+                                                        <option value="3">Delete</option>
+                                                    </select>                                                
+                                            </div>
+                                         </div>                                       
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input" value="Submit"></i>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>                       
+                    </div>
+                </div>
+            </div>
+        </div>
+ 

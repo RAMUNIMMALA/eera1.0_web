@@ -310,7 +310,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Partial\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -329,34 +328,34 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_mobileHeaderSection.cshtml" />
+    <Content Include="Views\Partial\_mobileHeaderSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_webHeaderSection.cshtml" />
+    <Content Include="Views\Partial\_webHeaderSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_PopularCourses.cshtml" />
+    <Content Include="Views\Partial\_PopularCourses.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_PopularInstitutes.cshtml" />
+    <Content Include="Views\Partial\_PopularInstitutes.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_PopularHostelPG.cshtml" />
+    <Content Include="Views\Partial\_PopularHostelPG.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Partial\_Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_MainSlider.cshtml" />
+    <Content Include="Views\Partial\_MainSlider.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Partial\_Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_Register.cshtml" />
+    <Content Include="Views\Partial\_Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_ForgotPassword.cshtml" />
+    <Content Include="Views\Partial\_ForgotPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\UserLayout.cshtml" />
@@ -366,6 +365,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Admin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Course\NewCourse.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Course\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partial\_adminLeftMenu.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

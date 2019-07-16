@@ -16,5 +16,10 @@ namespace eera_web.Controllers
             return View();
         }
 
+        public ActionResult NewCourse()
+        {
+            return View();
+        }
+
     }
 }
