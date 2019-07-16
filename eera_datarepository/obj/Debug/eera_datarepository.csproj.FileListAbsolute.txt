@@ -1,0 +1,5 @@
+D:\SCS\Clients\Shyam\EERA\gitsource\eera_datarepository\bin\Debug\eera_datarepository.dll
+D:\SCS\Clients\Shyam\EERA\gitsource\eera_datarepository\bin\Debug\eera_datarepository.pdb
+D:\SCS\Clients\Shyam\EERA\gitsource\eera_datarepository\obj\Debug\eera_datarepository.csprojResolveAssemblyReference.cache
+D:\SCS\Clients\Shyam\EERA\gitsource\eera_datarepository\obj\Debug\eera_datarepository.dll
+D:\SCS\Clients\Shyam\EERA\gitsource\eera_datarepository\obj\Debug\eera_datarepository.pdb

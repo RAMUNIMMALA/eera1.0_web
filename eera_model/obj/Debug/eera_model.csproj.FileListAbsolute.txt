@@ -1,0 +1,5 @@
+D:\SCS\Clients\Shyam\EERA\gitsource\eera_model\bin\Debug\eera_model.dll
+D:\SCS\Clients\Shyam\EERA\gitsource\eera_model\bin\Debug\eera_model.pdb
+D:\SCS\Clients\Shyam\EERA\gitsource\eera_model\obj\Debug\eera_model.csprojResolveAssemblyReference.cache
+D:\SCS\Clients\Shyam\EERA\gitsource\eera_model\obj\Debug\eera_model.dll
+D:\SCS\Clients\Shyam\EERA\gitsource\eera_model\obj\Debug\eera_model.pdb
