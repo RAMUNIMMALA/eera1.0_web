@@ -1,4 +1,6 @@
-﻿<div id="modal1" class="modal fade" role="dialog">
+﻿@model eera_model.User
+<div style="color:red">@ViewBag.errorMessage</div>
+<div id="modal1" class="modal fade" role="dialog">
     <div class="log-in-pop">
         <div class="log-in-pop-left">
             <h1>Hello...</h1>
@@ -25,13 +27,15 @@
                 @using (Html.BeginForm("UserLogin", "Home", FormMethod.Post)){ 
                 <div>
                     <div class="input-field s12">
-                        @Html.TextBox("txtMailId", null,new { @class = "validate", data_ng_model="name"})
+                        @*@Html.TextBox("txtMailId", null,new { @class = "validate", data_ng_model="name"})*@
+                        @Html.TextBoxFor(m => m.MailID, new { @class = "validate", data_ng_model = "name" })
                         <label id="lblUsename">Email Id</label>
                     </div>
                 </div>
                 <div>
                     <div class="input-field s12">
-                        @Html.TextBox("txtPassword", null, new { @class = "validate", @data_ng_model = "name", @type = "password" })
+                        @*@Html.TextBox("txtPassword", null, new { @class = "validate", @data_ng_model = "name", @type = "password" })*@
+                        @Html.TextBoxFor(m => m.Password, new { @class = "validate", @data_ng_model = "name", @type = "password" })
                         <label id="lblPassword">Password</label>
                     </div>
                 </div>

@@ -38,7 +38,7 @@ namespace eera_datarepository
 
             internal static DataSet RunSP(string SPName, IDbDataParameter[] ParamsList)
             {
-                string ConStr = ConfigurationManager.ConnectionStrings["etsconnection"].ConnectionString;
+                string ConStr = ConfigurationManager.ConnectionStrings["eerasqlconnection"].ConnectionString;
                 SqlConnection _Connection = new SqlConnection(ConStr);
                 SqlCommand _command = new SqlCommand(SPName, _Connection);
                 _command.CommandType = CommandType.StoredProcedure;
