@@ -1,54 +1,72 @@
-﻿@{
+﻿@model eera_model.Course
+@{
     ViewBag.Title = "NewCourse";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-
+<!--== breadcrumbs ==-->
+<div class="sb2-2-2">
+    <ul>
+        <li>
+            <a href="index-2.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+        </li>
+        <li class="active-bre">
+            <a href="#"> @ViewBag.CurrentPageLocation</a>
+        </li>
+        <li class="page-back">
+            <a href="~/Course/"><i class="fa fa-close" aria-hidden="true"></i> CLOSE</a>
+        </li>
+    </ul>
+</div>
+<!--== DASHBOARD INFO ==-->
         <div class="col-md-12">
             <div class="box-inn-sp admin-form">
                 <div class="sb2-2-add-blog sb2-2-1">
-                    <h2>Add New Course</h2>
-                  
+                    <h2>Add New Course</h2>                  
                     <div class="tab-content">
                         <div id="home" class="tab-pane fade active in">
                             <div class="box-inn-sp">
                                 <div class="inn-title">
-                                    <h4>Course Information</h4>
-                                    <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                                    <h4>Course Information</h4>                                  
                                 </div>
                                 <div class="bor">
-                                    <form>
+                                    @using (Html.BeginForm("Create", "Course", FormMethod.Post)){
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <input id="list-title" type="text" class="validate">
-                                                <label for="list-title" class="">Course Name</label>
-                                            </div>
-                                            <div class="input-field col s12">
-                                                <input id="list-name" type="text" class="validate">
-                                                <label for="list-name">Contact Person</label>
-                                            </div>
+                                                @Html.TextBoxFor(m => m.Title, new { id = "txtTitle", @class = "validate" })     
+                                                <label for="list-title" class="">Course Title</label>
+                                            </div>                                           
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <textarea class="materialize-textarea"></textarea>
-                                                <label>Course Descriptions:</label>
+                                                @Html.TextAreaFor(m => m.Description, new { id = "txtDescription", @class = "validate" })     
+                                                <label>Description</label>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="input-field col s12">                         
-                                                    <select class="initialized">
-                                                        <option value="" disabled="" selected="">Select Status</option>
-                                                        <option value="1">Active</option>
-                                                        <option value="2">De-Active</option>
-                                                        <option value="3">Delete</option>
-                                                    </select>                                                
+                                            <div class="file-field input-field col s12">
+                                                <div class="btn admin-upload-btn">
+                                                    <span>Banner Image</span>
+                                                    @Html.TextBoxFor(m => m.Banner, new { type="file", id = "txtTitle", @class = "validate" })   
+                                                    <input type="file">
+                                                </div>
+                                                <div class="file-path-wrapper">
+                                                    @Html.TextBoxFor(m => m.Banner, new { id = "txtTitle", @class = "file-path validate", placeholder = "Event image" })
+                                                    @*<input class="file-path validate" type="text" placeholder="Event image">*@
+                                                </div>
                                             </div>
-                                         </div>                                       
+                                        </div>   
+                                        <div class="row">
+                                            <div class="input-field col s12">                     
+                                                    <input type="checkbox" class="filled-in" id="filled-in-box-5">
+                                                    <label for="filled-in-box-5">Banner Access</label>
+                                            </div>                                          
+                                        </div>                                  
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input" value="Submit"></i>
                                             </div>
                                         </div>
-                                    </form>
+                                    }
                                 </div>
                             </div>
                         </div>                       

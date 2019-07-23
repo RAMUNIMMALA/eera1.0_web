@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DR_Admin.cs" />
     <Compile Include="DR_Course.cs" />
     <Compile Include="DR_Hostel.cs" />
     <Compile Include="DR_Institute.cs" />

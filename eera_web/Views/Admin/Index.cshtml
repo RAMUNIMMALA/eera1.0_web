@@ -1,41 +1,70 @@
-﻿@{
+﻿@model List<string>
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
 <div class="sb2-2-1">
     <h2>Admin Dashboard</h2>
-    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+    @*<p>Admin dashboard information</p>*@
     <div class="db-2">
         <ul>
             <li>
                 <div class="dash-book dash-b-1">
-                    <h5>All Courses</h5>
-                    <h4>948</h4>
-                    <a href="#">View more</a>
-                </div>
-            </li>
-            <li>
-                <div class="dash-book dash-b-2">
-                    <h5>Admission</h5>
-                    <h4>672</h4>
-                    <a href="#">View more</a>
-                </div>
-            </li>
-            <li>
-                <div class="dash-book dash-b-3">
-                    <h5>Students</h5>
-                    <h4>689</h4>
-                    <a href="#">View more</a>
+                    <h5>Users</h5>
+                    <h4>@Model[0]</h4>
+                    <a href="#">View All</a>
                 </div>
             </li>
             <li>
                 <div class="dash-book dash-b-4">
-                    <h5>Enquiry</h5>
-                    <h4>24</h4>
-                    <a href="#">View more</a>
+                    <h5>User Enquiries</h5>
+                    <h4>@Model[1]</h4>
+                    <a href="#">View All</a>
                 </div>
             </li>
+            <li>
+                <div class="dash-book dash-b-4">
+                    <h5>Partner Enquiries</h5>
+                    <h4>@Model[2]</h4>
+                    <a href="#">View All</a>
+                </div>
+            </li>
+            <li>
+                <div class="dash-book dash-b-1">
+                    <h5>Courses</h5>
+                    <h4>@Model[3]</h4>
+                    <a href="~/Course/">View All</a>
+                </div>
+            </li>
+            <li>
+                <div class="dash-book dash-b-1">
+                    <h5>Sub Courses</h5>
+                    <h4>@Model[4]</h4>
+                    <a href="#">View All</a>
+                </div>
+            </li>
+            <li>
+                <div class="dash-book dash-b-2">
+                    <h5>Institutes</h5>
+                    <h4>@Model[5]</h4>
+                    <a href="#">View All</a>
+                </div>
+            </li>
+            <li>
+                <div class="dash-book dash-b-3">
+                    <h5>Hostels</h5>
+                    <h4>@Model[6]</h4>
+                    <a href="#">View All</a>
+                </div>
+            </li>
+            <li>
+                <div class="dash-book dash-b-4">
+                    <h5>Mock Tests</h5>
+                    <h4>@Model[7]</h4>
+                    <a href="#">View All</a>
+                </div>
+            </li>           
         </ul>
     </div>
 </div>

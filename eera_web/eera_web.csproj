@@ -43,7 +43,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\eera_datarepository\bin\Debug\eera_datarepository.dll</HintPath>
     </Reference>
-    <Reference Include="eera_model">
+    <Reference Include="eera_model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\eera_model\bin\Debug\eera_model.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />

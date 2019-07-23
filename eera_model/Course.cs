@@ -8,5 +8,12 @@ namespace eera_model
 {
     public class Course
     {
+        public int Code { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Banner { get; set; }
+        public bool BannerAccess { get; set; }
+        public bool Status { get; set; }
+        public DateTime Date { get; set; }
     }
 }
