@@ -61,5 +61,40 @@ namespace eera_web.Controllers
             }
             return RedirectToAction(returnAction, returnController);
         }
+
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
+
+        public ActionResult Courses()
+        {
+            return View();
+        }
+
+        public ActionResult Institutes()
+        {
+            return View();
+        }
+
+        public ActionResult Hostels()
+        {
+            return View();
+        }
+
+        public ActionResult Tests()
+        {
+            return View();
+        }
+
+        public ActionResult Enquiry()
+        {
+            return View();
+        }
+
+        public ActionResult ContactUs()
+        {
+            return View();
+        } 
     }
 }

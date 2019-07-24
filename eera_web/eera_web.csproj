@@ -39,8 +39,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="eera_datarepository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="eera_datarepository">
       <HintPath>..\eera_datarepository\bin\Debug\eera_datarepository.dll</HintPath>
     </Reference>
     <Reference Include="eera_model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -382,6 +381,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Partial\_adminLeftMenu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\AboutUs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Courses.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
