@@ -3888,8 +3888,8 @@ left: 0;
      background: #f26838;
 }
  .head-2{
-     padding: 55px 0px 40px 0px;
-     background: url(../images/event-bg.jpg);
+     /*padding: 55px 0px 40px 0px;
+     background: url(../images/event-bg.jpg);*/
      position: relative;
 }
  .head-2:before{
