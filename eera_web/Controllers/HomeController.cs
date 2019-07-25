@@ -92,6 +92,11 @@ namespace eera_web.Controllers
             return View();
         }
 
+        public ActionResult PartnerEnquiry()
+        {
+            return View();
+        }
+
         public ActionResult ContactUs()
         {
             return View();
