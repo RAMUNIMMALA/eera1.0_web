@@ -116,12 +116,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\EERABaseController.cs" />
+    <Compile Include="Controllers\EnquiryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HostelController.cs" />
     <Compile Include="Controllers\InstituteController.cs" />
     <Compile Include="Controllers\OnlineTestController.cs" />
+    <Compile Include="Controllers\SubCategoryController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -305,7 +308,10 @@
     <Content Include="js\custom.js" />
     <Content Include="js\main.min.js" />
     <Content Include="js\materialize.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="uploads\category\Education.jpg" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -317,6 +323,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="uploads\category\slider\" />
+    <Folder Include="uploads\course\slider\" />
+    <Folder Include="uploads\hostel\slider\" />
+    <Folder Include="uploads\institute\slider\" />
+    <Folder Include="uploads\subcategory\slider\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -405,6 +416,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\PartnerEnquiry.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\qaeera.pubxml" />
+    <Content Include="Views\Enquiry\UserEnquiry.cshtml" />
+    <Content Include="Views\Enquiry\PartnerEnquiry.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\SubCategory\Index.cshtml" />
+    <Content Include="Views\Category\NewCategory.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

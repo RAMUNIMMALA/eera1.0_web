@@ -1,0 +1,86 @@
+﻿@model eera_model.Category
+@{
+    ViewBag.Title = "NewCategory";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<!--== breadcrumbs ==-->
+<div class="sb2-2-2">
+    <ul>
+        <li>
+            <a href="index-2.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+        </li>
+        <li class="active-bre">
+            <a href="#"> @ViewBag.CurrentPageLocation</a>
+        </li>
+        <li class="page-back">
+            <a href="~/Course/"><i class="fa fa-close" aria-hidden="true"></i> CLOSE</a>
+        </li>
+    </ul>
+</div>
+<!--== DASHBOARD INFO ==-->
+<div class="col-md-12">
+    <div class="box-inn-sp admin-form">
+        <div class="sb2-2-add-blog sb2-2-1">
+            <h2>Add New Category</h2>
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade active in">
+                    <div class="box-inn-sp">
+                        <div class="inn-title">
+                            <h4>Category Information</h4>
+                        </div>
+                        <div class="bor">
+                            @using (Html.BeginForm("Create", "Category", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextBoxFor(m => m.Title, new { id = "txtTitle", @class = "validate", placeholder = "Title" })
+                                        <label for="list-title" class="">Title</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextAreaFor(m => m.Details, new { id = "txtDescription", @class = "validate", placeholder = "Description" })
+                                        <label>Description</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                            <div class="file-field input-field col s12">
+                                                <div class="btn admin-upload-btn">
+                                                    <span>Banner Image</span>   
+                                                    @*@Html.TextBoxFor(m => m.HomeImageFile, new { @class = "validate", name = "Banner", type = "file" })*@          
+                                                    @*<input class="validate" id="fBannerImage" name="Banner" type="file" value="">*@   
+                                                    <input type="file" name="file">                                                    
+                                                </div>
+                                                <div class="file-path-wrapper">
+                                                    <input class="file-path validate" id="txtBannerImage" name="Banner" placeholder="Event image" type="text" value="">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div> 
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="checkbox" class="filled-in" id="filled-in-box-1" name="chkBannerAccess">
+                                        <label for="filled-in-box-1">Banner Access</label>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="checkbox" class="filled-in" id="filled-in-box-2" name="chkHomeAccess">
+                                        <label for="filled-in-box-2">Home Access</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="waves-effect waves-light btn-large waves-input-wrapper" style="">
+                                        <input type="submit" class="waves-button-input" value="Submit"></i>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

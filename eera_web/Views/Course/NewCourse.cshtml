@@ -13,7 +13,7 @@
             <a href="#"> @ViewBag.CurrentPageLocation</a>
         </li>
         <li class="page-back">
-            <a href="~/Course/"><i class="fa fa-close" aria-hidden="true"></i> CLOSE</a>
+            <a href="~/Category/"><i class="fa fa-close" aria-hidden="true"></i> CLOSE</a>
         </li>
     </ul>
 </div>
@@ -26,10 +26,10 @@
                         <div id="home" class="tab-pane fade active in">
                             <div class="box-inn-sp">
                                 <div class="inn-title">
-                                    <h4>Course Information</h4>                                  
+                                    <h4>Category Information</h4>                                  
                                 </div>
                                 <div class="bor">
-                                    @using (Html.BeginForm("Create", "Course", FormMethod.Post)){
+                                    @using (Html.BeginForm("Create", "Category", FormMethod.Post)){
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 @Html.TextBoxFor(m => m.Title, new { id = "txtTitle", @class = "validate" })     
@@ -42,25 +42,31 @@
                                                 <label>Description</label>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                       <div class="row">
                                             <div class="file-field input-field col s12">
                                                 <div class="btn admin-upload-btn">
                                                     <span>Banner Image</span>
-                                                    @Html.TextBoxFor(m => m.Banner, new { type="file", id = "txtTitle", @class = "validate" })   
-                                                    <input type="file">
+                                                    <input class="validate" id="txtTitle" name="Banner" type="file" value="">   
+                                                    <input type="file">                                                    
                                                 </div>
                                                 <div class="file-path-wrapper">
-                                                    @Html.TextBoxFor(m => m.Banner, new { id = "txtTitle", @class = "file-path validate", placeholder = "Event image" })
-                                                    @*<input class="file-path validate" type="text" placeholder="Event image">*@
+                                                    <input class="file-path validate" id="txtTitle" name="Banner" placeholder="Event image" type="text" value="">
+                                                    
                                                 </div>
                                             </div>
-                                        </div>   
-                                        <div class="row">
+                                        </div> 
+                                         <div class="row">
                                             <div class="input-field col s12">                     
                                                     <input type="checkbox" class="filled-in" id="filled-in-box-5">
                                                     <label for="filled-in-box-5">Banner Access</label>
                                             </div>                                          
-                                        </div>                                  
+                                        </div>      
+                                          <div class="row">
+                                            <div class="input-field col s12">                     
+                                                    <input type="checkbox" class="filled-in" id="filled-in-box-5">
+                                                    <label for="filled-in-box-5">Home Access</label>
+                                            </div>                                          
+                                        </div>                            
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input" value="Submit"></i>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Configuration;
 
 namespace eera_web.Controllers
 {
@@ -14,5 +15,18 @@ namespace eera_web.Controllers
         protected string returnAction = null;
         protected string returnController = null;
 
+        public EERABaseController()
+        {
+            categoryPath = Server.MapPath( Convert.ToString(ConfigurationManager.AppSettings["categoryimagepath"]));
+        }
+
+        //image paths
+        private string categoryPath;
+
+        protected string CategoryPath
+        {
+            get { return categoryPath; }
+            set { categoryPath = value; }
+        }
     }
 }
