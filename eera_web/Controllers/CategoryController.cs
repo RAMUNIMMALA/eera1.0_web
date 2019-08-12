@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using eera_datarepository;
 using eera_model;
 using System.IO;
+using System.Configuration;
 
 namespace eera_web.Controllers
 {
@@ -34,9 +35,14 @@ namespace eera_web.Controllers
         {
             try
             {
-                FileInfo fi = new FileInfo(file.FileName);
-                category.HomeImage = category.Title + fi.Extension;
+                //getting file name if uploaded
+                if (file != null)
+                {
+                    FileInfo fi = new FileInfo(file.FileName);
+                    category.HomeImage = category.Title + fi.Extension;
+                }
 
+                //getting checkbox values
                 if (postedForm["chkHomeAccess"] != null)
                 {
                     category.HomeImageAccess  = Convert.ToString( postedForm["chkHomeAccess"]) == "on" ? true : false;
@@ -44,16 +50,18 @@ namespace eera_web.Controllers
 
                 if (postedForm["chkBannerAccess"] != null)
                 {
-                    category.HomeImageAccess = Convert.ToString(postedForm["chkBannerAccess"]) == "on" ? true : false;
+                    category.HomePageAccess = Convert.ToString(postedForm["chkBannerAccess"]) == "on" ? true : false;
                 }
                 
+                //insert into database
                 drCategory = new DR_Category();
                 bool result = drCategory.CreateCategory(category);
-                if (result)
+                
+                //upload file
+                if (result && file != null)
                 {
-                    file.SaveAs(CategoryPath + category.HomeImage);
+                    file.SaveAs(Server.MapPath(CategoryPath) + category.HomeImage);
                 }
-
             }
             catch (Exception ex)
             {

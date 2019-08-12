@@ -15,7 +15,6 @@ namespace eera_model
         public string Title { get; set; }
         public string Details { get; set; }
         public string HomeImage { get; set; }
-        public HttpPostedFileBase HomeImageFile { get; set; }
         public bool HomeImageAccess { get; set; }
         public bool HomePageAccess { get; set; }
         public bool Status { get; set; }

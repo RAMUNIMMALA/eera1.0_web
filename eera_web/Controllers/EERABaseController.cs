@@ -14,19 +14,24 @@ namespace eera_web.Controllers
         protected string warningMessage = null;
         protected string returnAction = null;
         protected string returnController = null;
-        private string categoryPath ;
-        private string subCategoryPath;
-        private string coursePath;
-        private string institutePath;
-        private string hostelPath;
+        private static string categoryPath ;
+        private static string subCategoryPath;
+        private static string coursePath;
+        private static string institutePath;
+        private static string hostelPath;
+
+        static EERABaseController()
+        {
+            categoryPath = Convert.ToString(ConfigurationManager.AppSettings["categoryimagepath"]);
+            subCategoryPath =Convert.ToString(ConfigurationManager.AppSettings["subcategoryimagepath"]);
+            coursePath =  Convert.ToString(ConfigurationManager.AppSettings["courseimagepath"]);
+            institutePath = Convert.ToString(ConfigurationManager.AppSettings["institutepath"]);
+            hostelPath = Convert.ToString(ConfigurationManager.AppSettings["hostelpath"]);
+        }
 
         public EERABaseController()
         {
-            categoryPath = Server.MapPath( Convert.ToString(ConfigurationManager.AppSettings["categoryimagepath"]));
-            subCategoryPath = Server.MapPath(Convert.ToString(ConfigurationManager.AppSettings["subcategoryimagepath"]));
-            coursePath = Server.MapPath(Convert.ToString(ConfigurationManager.AppSettings["courseimagepath"]));
-            institutePath = Server.MapPath(Convert.ToString(ConfigurationManager.AppSettings["institutepath"]));
-            hostelPath = Server.MapPath(Convert.ToString(ConfigurationManager.AppSettings["hostelpath"]));
+            
         }
 
         //image paths
