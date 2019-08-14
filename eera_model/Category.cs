@@ -21,5 +21,7 @@ namespace eera_model
         public bool Status { get; set; }
         public DateTime Date { get; set; }
 
+        public int SubCategoryCount { get; set; }
+
     }
 }

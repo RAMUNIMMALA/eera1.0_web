@@ -14,14 +14,26 @@ namespace eera_web.Controllers
     {
 
         Category modelCategory = null;
-        DR_Category drCategory = null;       
+        DR_Category drCategory = null;
+        List<Category> lstCategories = null;
         //
         // GET: /Category/
 
         public ActionResult Index()
         {
             @ViewBag.CurrentPageLocation = "Category";
-            return View();
+            try
+            {
+                drCategory = new DR_Category();
+                int iTotalRows = 0;
+                lstCategories = drCategory.getCategoryList(ref iTotalRows);
+                ViewBag.TotalRecords = iTotalRows;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return View(lstCategories);
         }
 
         public ActionResult NewCategory()
@@ -68,8 +80,8 @@ namespace eera_web.Controllers
 
             }
 
-            return RedirectToAction("","");
+            return RedirectToAction("Index", "Category");
         }
-
+       
     }
 }

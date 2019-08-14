@@ -11,6 +11,26 @@ namespace eera_datarepository
     public class DR_Category : RepositoryBase
     {
         Category _category = null;
+        List<Category> lstCategory = null;
+
+        public List<Category> getCategoryList(ref int Total)
+        {
+            try
+            {
+                IDbDataParameter[] arrParameter = new IDbDataParameter[] { };
+                dsResultSet = DB_UTILITY.RunSP("USP_FETCHTBL_CATEGORY", arrParameter);
+                if (ValidateResultSet(dsResultSet))
+                {
+                    Total = Convert.ToInt32(dsResultSet.Tables[0].Rows[0][0]);
+                    lstCategory = OBJECT_UTILITY.GetConvertCollection<Category>(dsResultSet.Tables[1]);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lstCategory;
+        }
 
         public bool CreateCategory(Category category)
         {

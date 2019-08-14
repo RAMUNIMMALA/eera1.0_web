@@ -1,6 +1,68 @@
-﻿@{
+﻿@model List<eera_model.
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<!--== breadcrumbs ==-->
+<div class="sb2-2-2">
+    <ul>
+        <li>
+            <a href="index-2.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+        </li>
+        <li class="active-bre">
+            <a href="#"> @ViewBag.CurrentPageLocation</a>
+        </li>
+        <li class="page-back">
+            <a href="~/Category/NewCategory"><i class="fa fa-plus" aria-hidden="true"></i> New Category</a>
+        </li>
+    </ul>
+</div>
+<!--== DASHBOARD INFO ==-->
+<div class="col-md-12">
+    <div class="box-inn-sp">
+        <div class="inn-title">
+            <h4>Total Categories ( @ViewBag.TotalRecords )</h4>
+        </div>
+        <div class="tab-inn">
+            <div class="table-responsive table-desi">
+                @{
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Select</th>
+                                <th>Title</th>
+                                <th>No. Of Sub Categories</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var category in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked">
+                                        <label for="filled-in-box-1"></label>
+                                    </td>
+                                    <td>@category.Title</td>
+                                    <td>@category.SubCategoryCount</td>
+                                    <td>
+                                        @if (category.Status)
+                                        {
+                                            <span class="label label-success">Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="label label-danger">Inactive</span>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
