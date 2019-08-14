@@ -1,4 +1,5 @@
-﻿@{
+﻿@model System.Collections.Hashtable
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/HomeLayout.cshtml";
 }
@@ -6,9 +7,9 @@
 <!-- SLIDER -->
 @Html.Partial("../Partial/_MainSlider")
 <!-- POPULAR COURSES-->
-@Html.Partial("../Partial/_PopularCourses")
+@Html.Partial("../Partial/_PopularCourses", Model["CATEGORY"])
 <!-- INSTITUTES -->
-@Html.Partial("../Partial/_PopularInstitutes")
+@Html.Partial("../Partial/_PopularInstitutes", Model["INSTITUTE"])
 <!-- HOSTELS -->
-@Html.Partial("../Partial/_PopularHostelPG")
+@Html.Partial("../Partial/_PopularHostelPG", Model["HOSTEL"])
    

@@ -5,22 +5,32 @@ using System.Web;
 using System.Web.Mvc;
 using eera_datarepository;
 using eera_model;
+using System.Collections;
 
 namespace eera_web.Controllers
-{
-    public class HomeController : EERABaseController
+{    public class HomeController : EERABaseController
     {
 
         DR_User _drUser = null;
+        DR_Home _drHome = null;
+
         User _user = null;
         string userMail = null;
         string password = null;
-        //
-        // GET: /Home/
 
         public ActionResult Index()
         {
-            return View(new User());
+            _drHome = new DR_Home();
+            Hashtable htData = null;
+            try
+            {
+                htData = _drHome.getHomeInformation();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return View(htData);
         }
 
         public ActionResult UserLogin(User user)

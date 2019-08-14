@@ -1,0 +1,160 @@
+﻿@model eera_model.Hostel
+@{
+    ViewBag.Title = "NewHostel";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<!--== breadcrumbs ==-->
+<div class="sb2-2-2">
+    <ul>
+        <li>
+            <a href="~/Admin/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+        </li>
+        <li class="active-bre">
+            <a href="#"> @ViewBag.CurrentPageLocation</a>
+        </li>
+        <li class="page-back">
+            <a href="~/Admin/"><i class="fa fa-close" aria-hidden="true"></i> CLOSE</a>
+        </li>
+    </ul>
+</div>
+<!--== DASHBOARD INFO ==-->
+<div class="col-md-12">
+    <div class="box-inn-sp admin-form">
+        <div class="sb2-2-add-blog sb2-2-1">
+            <h2>Add New Hostel</h2>
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade active in">
+                    <div class="box-inn-sp">
+                        <div class="inn-title">
+                            <h4>Hostel Information</h4>
+                        </div>
+                        <div class="bor">
+                            @using (Html.BeginForm("Create", "Hostel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextBoxFor(m => m.Title, new { id = "txtTitle", @class = "validate", placeholder = "Title" })
+                                        <label for="list-title" class="">Title</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextAreaFor(m => m.Detials, new { id = "txtDescription", @class = "validate", placeholder = "Description" })
+                                        <label>Description</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="file-field input-field col s12">
+                                        <div class="btn admin-upload-btn">
+                                            <span>Banner Image</span>
+                                            <input type="file" name="file">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" id="txtBannerImage" name="Banner" placeholder="Event image" type="text" value="">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextBoxFor(m => m.StateCode, new { id = "txtStateCode", @class = "validate", placeholder = "StateCode" })
+                                        <label>StateCode</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextBoxFor(m => m.CityCode, new { id = "txtCityCode", @class = "validate", placeholder = "CityCode" })
+                                        <label>CityCode</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextBoxFor(m => m.AreaCode, new { id = "txtAreaCode", @class = "validate", placeholder = "AreaCode" })
+                                        <label>AreaCode</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextBoxFor(m => m.ContactNo, new { id = "txtContactNo", @class = "validate", placeholder = "ContactNo" })
+                                        <label>ContactNo</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextBoxFor(m => m.MailID, new { id = "txtMailID", @class = "validate", placeholder = "MailID" })
+                                        <label>MailID</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextBoxFor(m => m.Address, new { id = "txtAddress", @class = "validate", placeholder = "Address" })
+                                        <label>Address</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextBoxFor(m => m.Landmark, new { id = "txtLandmark", @class = "validate", placeholder = "Landmark" })
+                                        <label>Landmark</label>
+                                    </div>
+                                </div>
+                                   <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextBoxFor(m => m.Share, new { id = "txtShare", @class = "validate", placeholder = "Share" })
+                                        <label>Share</label>
+                                    </div>
+                                </div>
+                                        <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextBoxFor(m => m.Budget, new { id = "txtBudget", @class = "validate", placeholder = "Budget" })
+                                        <label>Budget</label>
+                                    </div>
+                                </div>
+                                         <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextBoxFor(m => m.Amenities, new { id = "txtAmenities", @class = "validate", placeholder = "Amenities" })
+                                        <label>Amenities</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextBoxFor(m => m.GoogleLocation, new { id = "txtGoogleLocation", @class = "validate", placeholder = "GoogleLocation" })
+                                        <label>GoogleLocation</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="checkbox" class="filled-in" id="filled-in-box-1" name="chkBannerAccess">
+                                        <label for="filled-in-box-1">Banner Access</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="checkbox" class="filled-in" id="filled-in-box-2" name="chkHomeAccess">
+                                        <label for="filled-in-box-2">Home Access</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="checkbox" class="filled-in" id="filled-in-box-2" name="chkSliderAccess">
+                                        <label for="filled-in-box-2">Slider Access</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="waves-effect waves-light btn-large waves-input-wrapper" style="">
+                                            <input type="submit" class="waves-button-input" value="Submit">
+                                        </i>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

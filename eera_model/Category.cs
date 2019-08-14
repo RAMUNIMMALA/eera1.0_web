@@ -11,13 +11,15 @@ namespace eera_model
 {
     public class Category
     {
-        public int Sno { get; set; }
+        public int CategoryCode { get; set; }
         public string Title { get; set; }
         public string Details { get; set; }
         public string HomeImage { get; set; }
         public bool HomeImageAccess { get; set; }
         public bool HomePageAccess { get; set; }
+        public int CourseCount { get; set; }
         public bool Status { get; set; }
         public DateTime Date { get; set; }
+
     }
 }

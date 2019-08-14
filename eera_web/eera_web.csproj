@@ -424,6 +424,12 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\SubCategory\Index.cshtml" />
     <Content Include="Views\Category\NewCategory.cshtml" />
+    <Content Include="Views\Hostel\Index.cshtml" />
+    <Content Include="Views\Hostel\New.cshtml" />
+    <Content Include="Views\Hostel\NewHostel.cshtml" />
+    <Content Include="Views\Institute\Index.cshtml" />
+    <Content Include="Views\Institute\New.cshtml" />
+    <Content Include="Views\Institute\NewInstitute.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
