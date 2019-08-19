@@ -425,7 +425,6 @@
     <Content Include="Views\SubCategory\Index.cshtml" />
     <Content Include="Views\Category\NewCategory.cshtml" />
     <Content Include="Views\Hostel\Index.cshtml" />
-    <Content Include="Views\Hostel\New.cshtml" />
     <Content Include="Views\Hostel\NewHostel.cshtml" />
     <Content Include="Views\Institute\Index.cshtml" />
     <Content Include="Views\Institute\New.cshtml" />

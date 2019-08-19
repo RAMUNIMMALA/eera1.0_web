@@ -13,6 +13,8 @@ namespace eera_web.Controllers
     {
         Hostel _modelHostel = null;
         DR_Hostel _drHostel = null;
+        List<Hostel> lstHostel = null;
+        DR_Location _drlocation = null;
 
 
         public ActionResult Index()
@@ -22,8 +24,10 @@ namespace eera_web.Controllers
 
         public ActionResult NewHostel()
         {
-            @ViewBag.CurrentPageLocation = "New Hostel";
-            return View();
+            _drlocation = new DR_Location();
+            List<Location> locations = _drlocation.getLocations();
+            ViewBag.Locations = locations;
+            return View(new Hostel());
         }
 
         [HttpPost]
@@ -66,10 +70,6 @@ namespace eera_web.Controllers
 
             return RedirectToAction("", "");
         }
-        public ActionResult New()
-        {
-            return View();
-        }
-
+        
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="DR_Home.cs" />
     <Compile Include="DR_Hostel.cs" />
     <Compile Include="DR_Institute.cs" />
+    <Compile Include="DR_Location.cs" />
     <Compile Include="DR_User.cs" />
     <Compile Include="DR_OnlineTest.cs" />
     <Compile Include="RepositoryBase.cs" />

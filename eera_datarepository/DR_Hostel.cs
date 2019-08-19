@@ -11,6 +11,7 @@ namespace eera_datarepository
     public class DR_Hostel : RepositoryBase
     {
         Hostel _Hostel = null;
+        List<Hostel> lstHostel = null;
 
         public bool CreateHostel(Hostel Hostel)
         {
@@ -27,7 +28,7 @@ namespace eera_datarepository
                     DB_UTILITY.CreateParameter("@iStateCode", DbType.String, ParameterDirection.Input, Hostel.StateCode ),
                     DB_UTILITY.CreateParameter("@iCityCode", DbType.String, ParameterDirection.Input, Hostel.CityCode ),
                     DB_UTILITY.CreateParameter("@iAreaCode", DbType.String, ParameterDirection.Input, Hostel.AreaCode ),
-                    DB_UTILITY.CreateParameter("@iContactNo", DbType.String, ParameterDirection.Input, Hostel.ContactNo ),
+                    DB_UTILITY.CreateParameter("@iContactNo", DbType.String, ParameterDirection.Input, Hostel.ContactNumber ),
                     DB_UTILITY.CreateParameter("@iMailID", DbType.String, ParameterDirection.Input, Hostel.MailID ),
                     DB_UTILITY.CreateParameter("@iAddress", DbType.String, ParameterDirection.Input, Hostel.Address ),
                     DB_UTILITY.CreateParameter("@iLandmark", DbType.String, ParameterDirection.Input, Hostel.Landmark ),
@@ -51,6 +52,27 @@ namespace eera_datarepository
 
             return result;
         }
-   
+        public List<Hostel> getHostels()
+        {
+            //order in the list should be 
+            //
+            List<string> lstHostelinfo = new List<string>();
+            try
+            {
+                IDbDataParameter[] arrParameter = new IDbDataParameter[] { };
+                dsResultSet = DB_UTILITY.RunSP("USP_FETCH_AGENCY", arrParameter);
+                if (ValidateResultSet(dsResultSet))
+                {
+                    lstHostel = OBJECT_UTILITY.GetConvertCollection<Hostel>(dsResultSet.Tables[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return lstHostel;
+        }
+    
     }
 }

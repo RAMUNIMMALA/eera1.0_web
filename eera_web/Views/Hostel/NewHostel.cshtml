@@ -32,6 +32,7 @@
                         <div class="bor">
                             @using (Html.BeginForm("Create", "Hostel", FormMethod.Post, new { enctype = "multipart/form-data" }))
                             {
+                                var locations = (List<eera_model.Location>)ViewBag.Locations;                                 
                                 <div class="row">
                                     <div class="input-field col s12">
                                         @Html.TextBoxFor(m => m.Title, new { id = "txtTitle", @class = "validate", placeholder = "Title" })
@@ -45,38 +46,27 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="file-field input-field col s12">
-                                        <div class="btn admin-upload-btn">
-                                            <span>Banner Image</span>
-                                            <input type="file" name="file">
-                                        </div>
-                                        <div class="file-path-wrapper">
-                                            <input class="file-path validate" id="txtBannerImage" name="Banner" placeholder="Event image" type="text" value="">
-
-                                        </div>
+                                    <div class="input-field col s12">
+                                        @*@Html.TextBoxFor(m => m.StateCode, new { id = "txtStateCode", @class = "validate", placeholder = "StateCode" })*@
+                                        @Html.DropDownListFor(model => Model.StateCode, new SelectList(locations.Where(x => x.Type == "STATE").ToList<eera_model.Location>(), "LocationID", "Title"), "Select")
+                                        @*<label>StateCode</label>*@
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        @Html.TextBoxFor(m => m.StateCode, new { id = "txtStateCode", @class = "validate", placeholder = "StateCode" })
-                                        <label>StateCode</label>
+                                        @Html.DropDownListFor(model => Model.CityCode, new SelectList(locations.Where(x => x.Type == "CITY").ToList<eera_model.Location>(), "LocationID", "Title"), "Select")
+                                        @*<label>CityCode</label>*@
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        @Html.TextBoxFor(m => m.CityCode, new { id = "txtCityCode", @class = "validate", placeholder = "CityCode" })
-                                        <label>CityCode</label>
+                                        @Html.DropDownListFor(model => Model.AreaCode, new SelectList(locations.Where(x => x.Type == "AREA").ToList<eera_model.Location>(), "LocationID", "Title"), "Select")
+                                        @*<label>AreaCode</label>*@
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        @Html.TextBoxFor(m => m.AreaCode, new { id = "txtAreaCode", @class = "validate", placeholder = "AreaCode" })
-                                        <label>AreaCode</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        @Html.TextBoxFor(m => m.ContactNo, new { id = "txtContactNo", @class = "validate", placeholder = "ContactNo" })
+                                        @Html.TextBoxFor(m => m.ContactNumber, new { id = "txtContactNo", @class = "validate", placeholder = "ContactNo" })
                                         <label>ContactNo</label>
                                     </div>
                                 </div>
@@ -129,6 +119,19 @@
                                         <label for="filled-in-box-1">Banner Access</label>
                                     </div>
                                 </div>
+                                 <div class="row">
+                                    <div class="file-field input-field col s12">
+                                        <div class="btn admin-upload-btn">
+                                            <span>Banner Image</span>
+                                            <input type="file" name="file">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" id="txtBannerImage" name="Banner" placeholder="Event image" type="text" value="">
+
+                                        </div>
+                                    </div>
+                                </div>
+                               
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input type="checkbox" class="filled-in" id="filled-in-box-2" name="chkHomeAccess">
