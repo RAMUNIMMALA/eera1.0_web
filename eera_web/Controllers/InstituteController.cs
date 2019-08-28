@@ -13,7 +13,7 @@ namespace eera_web.Controllers
     {
         Institute _modelInstitute = null;
         DR_Institute _drInstitute = null;
-
+        DR_Location _drlocation = null;
         //
         // GET: /Institute/
 
@@ -48,7 +48,6 @@ namespace eera_web.Controllers
                 {
                     Institute.BannerImageAccess = Convert.ToString(postedForm["chkBannerAccess"]) == "on" ? true : false;
                 }
-
                 //insert into database
                 _drInstitute = new DR_Institute();
                 bool result = _drInstitute.CreateInstitute(Institute);
@@ -63,14 +62,27 @@ namespace eera_web.Controllers
             {
 
             }
-
             return RedirectToAction("", "");
         }
         public ActionResult New()
         {
             return View();
         }
-
+        public ActionResult Location()
+        {
+            //to get the Location institute
+            List<Institute> listins = null;
+            try
+            {
+                _drlocation = new DR_Location();
+                listins = _drlocation.getInstitutes();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return View(listins);
+        }
 
     }
 }

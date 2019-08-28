@@ -25,16 +25,7 @@ namespace eera_model
         public bool HomePageAccess { get; set; }
         public bool Status { get; set; }
         public DateTime Date { get; set; }
+        public string Instituename { get; set; }
 
-        //public int InstituteCode { get; set; }
-        //public string Title { get; set; }
-        //public string Details { get; set; }
-        //public string HomeImage { get; set; }
-        //public bool HomeImageAcces { get; set; }
-        //public bool SliderAccess { get; set; }
-        //public int State { get; set; }
-        //public int CityCode { get; set; }
-        //public string City { get; set; }
-        //public int Area { get; set; }
     }
 }

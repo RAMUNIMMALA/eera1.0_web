@@ -1,6 +1,56 @@
-﻿@{
+﻿@model List<eera_model.UserEnquiry>
+@{
     ViewBag.Title = "UserEnquiry";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>UserEnquiry</h2>
+<div class="col-md-12">
+    <div class="box-inn-sp">
+        <div class="inn-title">
+            <h4>User Enquiries</h4>
+        </div>
+        <div class="tab-inn">
+            <div class="table-responsive table-desi">
+                @{
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>UserCode</th>
+                                <th>UserName</th>
+                                <th>PhoneNumber</th>
+                                <th>Email</th>
+                                <th>Description</th>
+                                <th>Reply</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var userenquery in Model)
+                            {
+                                <tr>
+                                    <td>@userenquery.UserAuthenticationCode</td>
+                                    <td>@userenquery.UserName</td>
+                                    <td>@userenquery.PhoneNumber</td>
+                                    <td>@userenquery.Email</td>
+                                    <td>@userenquery.Description</td>
+                                    @*<td>
+                                        @if (userenquery.Status)
+                                        {
+                                            <span class="label label-success">Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="label label-danger">Inactive</span>
+                                        }
+                                    </td>*@
+                                    <td> <a href="index-2.html"><i class="fa fa-reply" aria-hidden="true"></i> Reply</a></td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

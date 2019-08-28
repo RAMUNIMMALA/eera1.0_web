@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,8 +44,7 @@
     <Reference Include="eera_datarepository">
       <HintPath>..\eera_datarepository\bin\Debug\eera_datarepository.dll</HintPath>
     </Reference>
-    <Reference Include="eera_model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="eera_model">
       <HintPath>..\eera_model\bin\Debug\eera_model.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -429,6 +430,7 @@
     <Content Include="Views\Institute\Index.cshtml" />
     <Content Include="Views\Institute\New.cshtml" />
     <Content Include="Views\Institute\NewInstitute.cshtml" />
+    <Content Include="Views\Institute\Location.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -12,11 +12,13 @@ namespace eera_datarepository
    public class DR_Location : RepositoryBase
     {
         List<Location> lstLocations = null;
-
+        List<Institute>lstins=null;
         public List<Location> getLocations()
         {
-            //order in the list should be 
-            //
+            /// <summary>
+            /// Description : To get the Locations list
+            /// Name: Ramu Nimmala
+            /// </summary>
             List<string> lstlocationinfo = new List<string>();
             try
             {
@@ -33,6 +35,26 @@ namespace eera_datarepository
             }
 
             return lstLocations;
+        }
+        public List<Institute> getInstitutes()
+        {
+            
+            List<string> lstlocationinfo = new List<string>();
+            try
+            {
+                IDbDataParameter[] arrParameter = new IDbDataParameter[] { };
+                dsResultSet = DB_UTILITY.RunSP("USP_FETCH_INSTITUTE", arrParameter);
+                if (ValidateResultSet(dsResultSet))
+                {
+                    lstins = OBJECT_UTILITY.GetConvertCollection<Institute>(dsResultSet.Tables[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return lstins;
         }
     }
 }

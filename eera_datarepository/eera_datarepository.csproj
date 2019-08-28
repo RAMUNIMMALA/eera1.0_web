@@ -50,8 +50,10 @@
     <Compile Include="DR_Hostel.cs" />
     <Compile Include="DR_Institute.cs" />
     <Compile Include="DR_Location.cs" />
+    <Compile Include="DR_PartnerEnquiry.cs" />
     <Compile Include="DR_User.cs" />
     <Compile Include="DR_OnlineTest.cs" />
+    <Compile Include="DR_UserEnquiry.cs" />
     <Compile Include="RepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

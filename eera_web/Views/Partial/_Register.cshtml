@@ -1,4 +1,6 @@
-﻿<div id="modal2" class="modal fade" role="dialog">
+﻿@model eera_model.User
+
+<div id="modal2" class="modal fade" role="dialog">
     <div class="log-in-pop">
         <div class="log-in-pop-left">
             <h1>Hello...</h1>
@@ -17,46 +19,61 @@
             </ul>
         </div>
         <div class="log-in-pop-right">
-            <a href="#" class="pop-close" data-dismiss="modal">
-                <img src="~/images/cancel.png" alt="" />
-            </a>
-            <h4>Create an Account</h4>
-            <p>Don't have an account? Create your account. It's take less then a minutes</p>
-            <form class="s12">
+            @using (Html.BeginForm("UserSigup", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                var locations =(List<eera_model.Location>)ViewBag.Locations;
+
+                <a href="#" class="pop-close" data-dismiss="modal">
+                        <img src="~/images/cancel.png" alt="" />
+                    </a>
+                <h4>Create an Account</h4>
+
+                <p>Don't have an account? Create your account. It's take less then a minutes</p>
+
                 <div>
                     <div class="input-field s12">
-                        <input type="text" data-ng-model="name1" class="validate">
-                        <label>User name</label>
+                        @Html.TextBoxFor(m => m.Name,"Please enter name", new { @class = "validate", placeholder = "Name" })
                     </div>
                 </div>
                 <div>
                     <div class="input-field s12">
-                        <input type="email" class="validate">
-                        <label>Email id</label>
+                        @Html.TextBoxFor(m => m.ContactNo, new { @class = "validate", placeholder = "ContactNo" })
                     </div>
                 </div>
                 <div>
                     <div class="input-field s12">
-                        <input type="password" class="validate">
-                        <label>Password</label>
+                        @Html.TextBoxFor(m => m.MailID, new { @class = "validate", placeholder = "Mail" })
                     </div>
                 </div>
                 <div>
                     <div class="input-field s12">
-                        <input type="password" class="validate">
-                        <label>Confirm password</label>
+                        @Html.TextBoxFor(m => m.City, new { id = "txtCity", @class = "validate", placeholder = "City" })
+                        @*@Html.DropDownListFor(model => Model.City, new SelectList(locations.Where(x => x.Type == "CITY").ToList<eera_model.Location>(), "LocationID", "Title"), "Select")*@
                     </div>
                 </div>
+                <div>
+                    <div class="input-field s12">
+                        @Html.TextBoxFor(m => m.Password, new { @class = "validate",type="password", placeholder = "Password" })
+
+                    </div>
+                </div>
+
+                @*<div>
+                        <div class="input-field s12">
+                            @Html.TextBoxFor(m => m.RoleId, new { @class = "validate", placeholder = "RoleId" })
+                        </div>
+                    </div>*@
                 <div>
                     <div class="input-field s4">
                         <input type="submit" value="Register" class="waves-effect waves-light log-in-btn">
                     </div>
                 </div>
-                <div>
-                    <div class="input-field s12"> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal1">Are you a already member ? Login</a> </div>
-                </div>
-            </form>
+            }
+            <div>
+                <div class="input-field s12"> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal1">Are you a already member ? Login</a> </div>
+            </div>
+
         </div>
     </div>
 </div>
-
+. 
