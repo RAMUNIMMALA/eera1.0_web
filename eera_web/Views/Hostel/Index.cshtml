@@ -1,4 +1,4 @@
-﻿@model eera_model.Hostel
+﻿@model List<eera_model.Hostel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -8,13 +8,13 @@
 <div class="sb2-2-2">
     <ul>
         <li>
-            <a href="~/Admin/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            <a href="~/Admin/Index"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
         </li>
         <li class="active-bre">
             <a href="#"> @ViewBag.CurrentPageLocation</a>
         </li>
         <li class="page-back">
-            <a href="~/Admin/"><i class="fa fa-close" aria-hidden="true"></i>Close</a>
+            <a href="~/Hostel/NewHostel"><i class="fa fa-plus" aria-hidden="true"></i> New Hostel</a>
         </li>
     </ul>
 </div>
@@ -22,119 +22,48 @@
 <div class="col-md-12">
     <div class="box-inn-sp">
         <div class="inn-title">
-            <h4>Total Hostel</h4>
+            <h4>Total Hostels @ViewBag.TotalRecords</h4>
         </div>
         <div class="tab-inn">
             <div class="table-responsive table-desi">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Select</th>
-                            <th>Hostel Title</th>
-                            <th>Category</th>
-                            <th>Contact No</th>
-                            <th>Town</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked">
-                                <label for="filled-in-box-1"></label>
-                            </td>
-                            <td><a href="@Url.Action("New",null,new {area=string.Empty,Controller ="Hostel"},Request.Url.Scheme)"><span>New Hostel</span></a></td>
-                            <td>
-                                <input type="radio" id="choice1" name="choice" value="Yes">
-                                <label for="choice1"> <i class="fa fa-male" aria-hidden="true"></i></label>
-                                <input type="radio" id="choice2" name="choice" value="No">
-                                <label for="choice2"><i class="fa fa-female" aria-hidden="true"></i></i></label>
-                            </td>
-                            <td>9999999999</td>
-                            <td>hyderabad</td>
-                            <td>
-                                <span class="label label-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked">
-                                <label for="filled-in-box-1"></label>
-                            </td>
-                            <td><a href="@Url.Action("New",null,new {area=string.Empty,Controller ="Hostel"},Request.Url.Scheme)"><span>New Hostel</span></a></td>
-                            <td>
-                                <input type="radio" id="choice1" name="choice" value="Yes">
-                                <label for="choice1"><i class="fa fa-male" aria-hidden="true"></i></label>
-                                <input type="radio" id="choice2" name="choice" value="No">
-                                <label for="choice2"><i class="fa fa-female" aria-hidden="true"></i></label>
-                            </td>
-                            <td>9999999999</td>
-                            <td>hyderabad</td>
-                            <td>
-                                <span class="label label-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked">
-                                <label for="filled-in-box-1"></label>
-                            </td>
-                            <td><a href="@Url.Action("New",null,new {area=string.Empty,Controller ="Hostel"},Request.Url.Scheme)"><span>New Hostel</span></a></td>
-                            <td>
-                                <input type="radio" id="choice1" name="choice" value="Yes">
-                                <label for="choice1"><i class="fa fa-male" aria-hidden="true"></i></label>
-                                <input type="radio" id="choice2" name="choice" value="No">
-                                <label for="choice2"><i class="fa fa-female" aria-hidden="true"></i></label>
-                            </td>
-                            <td>9999999999</td>
-                            <td>hyderabad</td>
-                            <td>
-                                <span class="label label-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked">
-                                <label for="filled-in-box-1"></label>
-                            </td>
-                            <td><a href="@Url.Action("New",null,new {area=string.Empty,Controller ="Hostel"},Request.Url.Scheme)"><span>New Hostel</span></a></td>
-                            <td>
-                                <input type="radio" id="choice1" name="choice" value="Yes">
-                                <label for="choice1"><i class="fa fa-male" aria-hidden="true"></i></label>
-                                <input type="radio" id="choice2" name="choice" value="No">
-                                <label for="choice2"><i class="fa fa-female" aria-hidden="true"></i></label>
-                            </td>
-                            <td>9999999999</td>
-                            <td>hyderabad</td>
-                            <td>
-                                <span class="label label-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked">
-                                <label for="filled-in-box-1"></label>
-                            </td>
-                            <td><a href="@Url.Action("New",null,new {area=string.Empty,Controller ="Hostel"},Request.Url.Scheme)"><span>New Hostel</span></a></td>
-                            <td>
-                                @*@if (Model.Category = M);*@
-                                @*{*@
-                                <label for="choice1"><i class="fa fa-male fa_custom fa-7x"></i></label>
-                                @*}*@
-                                @*@else*@
-                                {
-                                <label for="choice2"><i class="fa fa-male fa_custom"></i></label>
-                                @*}*@
-                            </td>
-                            <td>9999999999</td>
-                            <td>hyderabad</td>
-                            <td>
-                                <span class="label label-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr></tr>
-                    </tbody>
-                </table>
+                @{
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Select</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>ContactNo</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var Hostel in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked">
+                                        <label for="filled-in-box-1"></label>
+                                    </td>
+                                    <td>@Hostel.Title</td>
+                                    <td>@Hostel.Category</td>
+                                    <td>@Hostel.ContactNumber</td>
+                                    <td>
+                                        @if (Hostel.Status)
+                                        {
+                                            <span class="label label-success">Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="label label-danger">Inactive</span>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+
             </div>
         </div>
     </div>

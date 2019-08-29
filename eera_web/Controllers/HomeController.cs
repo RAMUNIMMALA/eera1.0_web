@@ -82,7 +82,7 @@ namespace eera_web.Controllers
             ViewBag.Locations = locations;
             try
             {
-                user.RoleId = 1;
+                user.RoleNo = 1;
                 _drUser = new DR_User();
                 _drUser.verifyUserSigup(user);
 

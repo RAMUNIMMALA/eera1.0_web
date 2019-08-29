@@ -13,6 +13,8 @@ namespace eera_datarepository
         Category _category = null;
         List<Category> lstCategory = null;
 
+      
+
         public List<Category> getCategoryList(ref int Total)
         {
             try
@@ -31,6 +33,8 @@ namespace eera_datarepository
             }
             return lstCategory;
         }
+
+        //Method For Insert Category Data Into Database.
 
         public bool CreateCategory(Category category)
         {

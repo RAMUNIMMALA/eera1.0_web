@@ -13,6 +13,8 @@ namespace eera_datarepository
         Hostel _Hostel = null;
         List<Hostel> lstHostel = null;
 
+        //Method For Insert Hostels Data Into Database.
+
         public bool CreateHostel(Hostel Hostel)
         {
             bool result = false;
@@ -54,13 +56,13 @@ namespace eera_datarepository
         }
         public List<Hostel> getHostels()
         {
-            //order in the list should be 
+            // Method For Fetch Hostels Data From Database.
             //
             List<string> lstHostelinfo = new List<string>();
             try
             {
                 IDbDataParameter[] arrParameter = new IDbDataParameter[] { };
-                dsResultSet = DB_UTILITY.RunSP("USP_FETCH_AGENCY", arrParameter);
+                dsResultSet = DB_UTILITY.RunSP("USP_FETCHTBL_AGENCY", arrParameter);
                 if (ValidateResultSet(dsResultSet))
                 {
                     lstHostel = OBJECT_UTILITY.GetConvertCollection<Hostel>(dsResultSet.Tables[0]);
@@ -73,6 +75,5 @@ namespace eera_datarepository
 
             return lstHostel;
         }
-    
     }
 }

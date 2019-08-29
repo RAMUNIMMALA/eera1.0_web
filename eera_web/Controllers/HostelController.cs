@@ -13,17 +13,32 @@ namespace eera_web.Controllers
     {
         Hostel _modelHostel = null;
         DR_Hostel _drHostel = null;
-        List<Hostel> lstHostel = null;
         DR_Location _drlocation = null;
 
+        //Controller For Fetching Hostels Data From Database.
 
         public ActionResult Index()
         {
-            return View();
+            @ViewBag.CurrentPageLocation = "Hostels";
+            List<Hostel> lstHostelinfo = null;
+            try
+            {
+                _drHostel = new DR_Hostel();
+                lstHostelinfo = _drHostel.getHostels();
+
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            return View(lstHostelinfo);
         }
+
+        //Controller For Inserting Hostels Data Into Database.
 
         public ActionResult NewHostel()
         {
+            @ViewBag.CurrentPageLocation = "Hostels";
             _drlocation = new DR_Location();
             List<Location> locations = _drlocation.getLocations();
             ViewBag.Locations = locations;
@@ -60,7 +75,7 @@ namespace eera_web.Controllers
                 //upload file
                 if (result && file != null)
                 {
-                    file.SaveAs(Server.MapPath(CategoryPath) + Hostel.BannerImage);
+                    file.SaveAs(Server.MapPath(HostelPath) + Hostel.BannerImage);
                 }
             }
             catch (Exception ex)
@@ -68,8 +83,8 @@ namespace eera_web.Controllers
 
             }
 
-            return RedirectToAction("", "");
+            return RedirectToAction("NewHostel", "Hostel");
         }
-        
+
     }
 }

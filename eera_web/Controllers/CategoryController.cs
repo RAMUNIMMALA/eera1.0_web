@@ -19,6 +19,8 @@ namespace eera_web.Controllers
         //
         // GET: /Category/
 
+        //Controller For Fetching Category Data From Database.
+
         public ActionResult Index()
         {
             @ViewBag.CurrentPageLocation = "Category";
@@ -35,6 +37,8 @@ namespace eera_web.Controllers
             }
             return View(lstCategories);
         }
+
+        //Controller For Inserting Category Data Into Database.
 
         public ActionResult NewCategory()
         {

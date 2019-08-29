@@ -1,4 +1,4 @@
-﻿@model List<eera_model.
+﻿@model List<eera_model.SubCategory>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -8,13 +8,13 @@
 <div class="sb2-2-2">
     <ul>
         <li>
-            <a href="index-2.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            <a href="~/Admin/Index"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
         </li>
         <li class="active-bre">
             <a href="#"> @ViewBag.CurrentPageLocation</a>
         </li>
         <li class="page-back">
-            <a href="~/Category/NewCategory"><i class="fa fa-plus" aria-hidden="true"></i> New Category</a>
+            <a href="~/Category/NewCategory"><i class="fa fa-plus" aria-hidden="true"></i> New SubCategory</a>
         </li>
     </ul>
 </div>
@@ -22,7 +22,7 @@
 <div class="col-md-12">
     <div class="box-inn-sp">
         <div class="inn-title">
-            <h4>Total Categories ( @ViewBag.TotalRecords )</h4>
+            <h4>Total SubCategories ( @ViewBag.TotalRecords )</h4>
         </div>
         <div class="tab-inn">
             <div class="table-responsive table-desi">
@@ -32,22 +32,22 @@
                             <tr>
                                 <th>Select</th>
                                 <th>Title</th>
-                                <th>No. Of Sub Categories</th>
+                                <th>No. Of Courses</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var category in Model)
+                            @foreach (var Subcategory in Model)
                             {
                                 <tr>
                                     <td>
                                         <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked">
                                         <label for="filled-in-box-1"></label>
                                     </td>
-                                    <td>@category.Title</td>
-                                    <td>@category.SubCategoryCount</td>
+                                    <td>@Subcategory.Title</td>
+                                    <td>@Subcategory.CourseCount</td>
                                     <td>
-                                        @if (category.Status)
+                                        @if (Subcategory.Status)
                                         {
                                             <span class="label label-success">Active</span>
                                         }
@@ -66,3 +66,4 @@
         </div>
     </div>
 </div>
+

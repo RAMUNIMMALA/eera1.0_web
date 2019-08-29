@@ -41,7 +41,7 @@ namespace eera_datarepository
                      DB_UTILITY.CreateParameter("@iEmail", DbType.String, ParameterDirection.Input, userdata.MailID ),
                       DB_UTILITY.CreateParameter("@iCity", DbType.String, ParameterDirection.Input,userdata.City ),
                            DB_UTILITY.CreateParameter("@iPassword", DbType.String, ParameterDirection.Input, userdata.Password),
-                                DB_UTILITY.CreateParameter("@iRoleID", DbType.Int16, ParameterDirection.Input,userdata.RoleId ),
+                                DB_UTILITY.CreateParameter("@iRoleID", DbType.Int16, ParameterDirection.Input,userdata.RoleNo ),
                                 DB_UTILITY.CreateParameter("@iStatus", DbType.String, ParameterDirection.Input,"1")
 
                 };

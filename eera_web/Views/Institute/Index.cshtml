@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<eera_model.Institute>
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
@@ -7,122 +8,66 @@
 <div class="sb2-2-2">
     <ul>
         <li>
-            <a href="~/Admin/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            <a href="~/Admin/Index"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
         </li>
         <li class="active-bre">
-            <a href="#"> @ViewBag.CurrentPageLocation</a>
+            <a href="#">@ViewBag.CurrentPageLocation</a>
         </li>
         <li class="page-back">
-            <a href="~/Admin"><i class="fa fa-close" aria-hidden="true"></i>Close</a>
+            <a href="~/Institute/NewInstitute"><i class="fa fa-plus" aria-hidden="true"></i>New Institute</a>
         </li>
     </ul>
 </div>
-<!--== DASHBOARD INFO ==-->
+<!--==DASHBOARD INFO ==-->
 <div class="col-md-12">
     <div class="box-inn-sp">
         <div class="inn-title">
-            <h4>Total Institutes</h4>
+            <h4>Total Institutes @ViewBag.TotalRecords </h4>
         </div>
         <div class="tab-inn">
             <div class="table-responsive table-desi">
-                <table class="table table-hover">
+                @{
+                    <table class="table table-hover">
                     <thead>
                         <tr>
                             <th>Select</th>
                             <th>Title</th>
                             <th>ContactNo</th>
-                            <th>Addres</th>
                             <th>Courses</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach (var Institute in Model)
+                        {
                         <tr>
                             <td>
                                 <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked">
                                 <label for="filled-in-box-1"></label>
                             </td>
-                            <td><a href="@Url.Action("New",null,new {area=string.Empty,Controller ="Institute"},Request.Url.Scheme)"><span>New Institute</span></a></td>
-                            <td>99999999999</td>
-                            <td>hyd</td>
-                            <td><a href="@Url.Action("Index", null, new { area = string.Empty, Controller = "Course" }, Request.Url.Scheme)"><span>25</span></a></td>
-
+                            <td>@Institute.Title</td>
+                            <td>@Institute.ContactNo</td>  
                             <td>
+                                <a href="@Url.Action("Index", null, new { area = string.Empty, Controller = "Course" }, Request.Url.Scheme)">
+                                    <span>25</span>
+                                </a>
+                            </td>
+                            <td>
+                                @if (Institute.Status)
+                                { 
                                 <span class="label label-success">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="label label-danger">Inactive</span>
+                                }
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked">
-                                <label for="filled-in-box-1"></label>
-                            </td>
-                            <td><a href="@Url.Action("New",null,new {area=string.Empty,Controller ="Institute"},Request.Url.Scheme)"><span>New Institute</span></a></td>
-                            <td>99999999999</td>
-                            <td>hyd</td>
-                            <td><a href="@Url.Action("Index", null, new { area = string.Empty, Controller = "Course" }, Request.Url.Scheme)"><span>25</span></a></td>
-
-                            <td>
-                                <span class="label label-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked">
-                                <label for="filled-in-box-1"></label>
-                            </td>
-                            <td><a href="@Url.Action("New",null,new {area=string.Empty,Controller ="Institute"},Request.Url.Scheme)"><span>New Institute</span></a></td>
-                            <td>99999999999</td>
-                            <td>hyd</td>
-                            <td><a href="@Url.Action("Index", null, new { area = string.Empty, Controller = "Course" }, Request.Url.Scheme)"><span>25</span></a></td>
-
-                            <td>
-                                <span class="label label-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked">
-                                <label for="filled-in-box-1"></label>
-                            </td>
-                            <td><a href="@Url.Action("New",null,new {area=string.Empty,Controller ="Institute"},Request.Url.Scheme)"><span>New Institute</span></a></td>
-                            <td>99999999999</td>
-                            <td>hyd</td>
-                            <td><a href="@Url.Action("Index", null, new { area = string.Empty, Controller = "Course" }, Request.Url.Scheme)"><span>25</span></a></td>
-
-                            <td>
-                                <span class="label label-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked">
-                                <label for="filled-in-box-1"></label>
-                            </td>
-                            <td><a href="@Url.Action("New",null,new {area=string.Empty,Controller ="Institute"},Request.Url.Scheme)"><span>New Institute</span></a></td>
-                            <td>99999999999</td>
-                            <td>hyd</td>
-                            <td><a href="@Url.Action("Index", null, new { area = string.Empty, Controller = "Course" }, Request.Url.Scheme)"><span>25</span></a></td>
-
-                            <td>
-                                <span class="label label-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked">
-                                <label for="filled-in-box-1"></label>
-                            </td>
-                            <td><a href="@Url.Action("New",null,new {area=string.Empty,Controller ="Institute"},Request.Url.Scheme)"><span>New Institute</span></a></td>
-                            <td>99999999999</td>
-                            <td>hyd</td>
-                            <td><a href="@Url.Action("Index", null, new { area = string.Empty, Controller = "Course" }, Request.Url.Scheme)"><span>25</span></a></td>
-                            <td>
-                                <span class="label label-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr></tr>
-                    </tbody>
-                </table>
+                        }                     
+                      </tbody>
+                </table>                    
+                }
+                
             </div>
         </div>
     </div>

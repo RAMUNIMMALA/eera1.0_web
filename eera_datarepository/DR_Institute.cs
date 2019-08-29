@@ -11,6 +11,9 @@ namespace eera_datarepository
     public class DR_Institute : RepositoryBase
     {
         Institute _Institute = null;
+        List<Institute> lstInstitute = null;
+
+        //Method for Insert Institute Data Into Database 
 
         public bool CreateInstitute(Institute Institute)
         {
@@ -46,6 +49,30 @@ namespace eera_datarepository
             }
 
             return result;
-        }   
+        }
+
+
+        //Method for Fetch  Institute Data From Database.
+
+        public List<Institute> getInstitutes()
+        {
+
+            List<string> lstInstituteinfo = new List<string>();
+            try
+            {
+                IDbDataParameter[] arrParameter = new IDbDataParameter[] { };
+                dsResultSet = DB_UTILITY.RunSP("USP_FETCHTBL_SUPPLIER", arrParameter);
+                if (ValidateResultSet(dsResultSet))
+                {
+                    lstInstitute = OBJECT_UTILITY.GetConvertCollection<Institute>(dsResultSet.Tables[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return lstInstitute;
+        }
     }
 }

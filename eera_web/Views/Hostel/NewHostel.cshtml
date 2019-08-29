@@ -14,7 +14,7 @@
             <a href="#"> @ViewBag.CurrentPageLocation</a>
         </li>
         <li class="page-back">
-            <a href="~/Admin/"><i class="fa fa-close" aria-hidden="true"></i> CLOSE</a>
+            <a href="~/Hostel/Index"><i class="fa fa-close" aria-hidden="true"></i> CLOSE</a>
         </li>
     </ul>
 </div>
@@ -32,83 +32,87 @@
                         <div class="bor">
                             @using (Html.BeginForm("Create", "Hostel", FormMethod.Post, new { enctype = "multipart/form-data" }))
                             {
-                                var locations = (List<eera_model.Location>)ViewBag.Locations;                                 
+                                var locations = (List<eera_model.Location>)ViewBag.Locations;
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        @Html.TextBoxFor(m => m.Title, new { id = "txtTitle", @class = "validate", placeholder = "Title" })
+                                        @Html.TextBoxFor(m => m.Title, new { id = "txtTitle", @class = "validate", placeholder = "Title", required = "" })
                                         <label for="list-title" class="">Title</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        @Html.TextAreaFor(m => m.Detials, new { id = "txtDescription", @class = "validate", placeholder = "Description" })
+                                        @Html.TextAreaFor(m => m.Detials, new { id = "txtDescription", @class = "validate", placeholder = "Description", required = "" })
                                         <label>Description</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        @Html.TextBoxFor(m => m.Category, new { id = "txtCategory", @class = "validate", placeholder = "Category", required = "" })
+                                        <label>Category</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
                                         @*@Html.TextBoxFor(m => m.StateCode, new { id = "txtStateCode", @class = "validate", placeholder = "StateCode" })*@
                                         @Html.DropDownListFor(model => Model.StateCode, new SelectList(locations.Where(x => x.Type == "STATE").ToList<eera_model.Location>(), "LocationID", "Title"), "Select")
-                                        @*<label>StateCode</label>*@
+                                        @Html.ValidationMessageFor(model => model.StateCode, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
                                         @Html.DropDownListFor(model => Model.CityCode, new SelectList(locations.Where(x => x.Type == "CITY").ToList<eera_model.Location>(), "LocationID", "Title"), "Select")
-                                        @*<label>CityCode</label>*@
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
                                         @Html.DropDownListFor(model => Model.AreaCode, new SelectList(locations.Where(x => x.Type == "AREA").ToList<eera_model.Location>(), "LocationID", "Title"), "Select")
-                                        @*<label>AreaCode</label>*@
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        @Html.TextBoxFor(m => m.ContactNumber, new { id = "txtContactNo", @class = "validate", placeholder = "ContactNo" })
+                                        @Html.TextBoxFor(m => m.ContactNumber, new { id = "txtContactNo", @class = "validate", placeholder = "ContactNo", required = "" })
                                         <label>ContactNo</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        @Html.TextBoxFor(m => m.MailID, new { id = "txtMailID", @class = "validate", placeholder = "MailID" })
+                                        @Html.TextBoxFor(m => m.MailID, new { id = "txtMailID", @class = "validate", placeholder = "MailID", required = "" })
                                         <label>MailID</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        @Html.TextBoxFor(m => m.Address, new { id = "txtAddress", @class = "validate", placeholder = "Address" })
+                                        @Html.TextBoxFor(m => m.Address, new { id = "txtAddress", @class = "validate", placeholder = "Address", required = "" })
                                         <label>Address</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        @Html.TextBoxFor(m => m.Landmark, new { id = "txtLandmark", @class = "validate", placeholder = "Landmark" })
+                                        @Html.TextBoxFor(m => m.Landmark, new { id = "txtLandmark", @class = "validate", placeholder = "Landmark", required = "" })
                                         <label>Landmark</label>
                                     </div>
                                 </div>
-                                   <div class="row">
+                                <div class="row">
                                     <div class="input-field col s12">
-                                        @Html.TextBoxFor(m => m.Share, new { id = "txtShare", @class = "validate", placeholder = "Share" })
+                                        @Html.TextBoxFor(m => m.Share, new { id = "txtShare", @class = "validate", placeholder = "Share", required = "" })
                                         <label>Share</label>
                                     </div>
                                 </div>
-                                        <div class="row">
+                                <div class="row">
                                     <div class="input-field col s12">
-                                        @Html.TextBoxFor(m => m.Budget, new { id = "txtBudget", @class = "validate", placeholder = "Budget" })
+                                        @Html.TextBoxFor(m => m.Budget, new { id = "txtBudget", @class = "validate", placeholder = "Budget", required = "" })
                                         <label>Budget</label>
                                     </div>
                                 </div>
-                                         <div class="row">
+                                <div class="row">
                                     <div class="input-field col s12">
-                                        @Html.TextBoxFor(m => m.Amenities, new { id = "txtAmenities", @class = "validate", placeholder = "Amenities" })
+                                        @Html.TextBoxFor(m => m.Amenities, new { id = "txtAmenities", @class = "validate", placeholder = "Amenities", required = "" })
                                         <label>Amenities</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        @Html.TextBoxFor(m => m.GoogleLocation, new { id = "txtGoogleLocation", @class = "validate", placeholder = "GoogleLocation" })
+                                        @Html.TextBoxFor(m => m.GoogleLocation, new { id = "txtGoogleLocation", @class = "validate", placeholder = "GoogleLocation", required = "" })
                                         <label>GoogleLocation</label>
                                     </div>
                                 </div>
@@ -119,7 +123,7 @@
                                         <label for="filled-in-box-1">Banner Access</label>
                                     </div>
                                 </div>
-                                 <div class="row">
+                                <div class="row">
                                     <div class="file-field input-field col s12">
                                         <div class="btn admin-upload-btn">
                                             <span>Banner Image</span>
@@ -131,7 +135,7 @@
                                         </div>
                                     </div>
                                 </div>
-                               
+
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input type="checkbox" class="filled-in" id="filled-in-box-2" name="chkHomeAccess">

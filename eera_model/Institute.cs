@@ -1,8 +1,9 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace eera_model
 {
@@ -25,7 +26,6 @@ namespace eera_model
         public bool HomePageAccess { get; set; }
         public bool Status { get; set; }
         public DateTime Date { get; set; }
-        public string Instituename { get; set; }
-
+        
     }
 }

@@ -14,17 +14,39 @@ namespace eera_web.Controllers
         Institute _modelInstitute = null;
         DR_Institute _drInstitute = null;
         DR_Location _drlocation = null;
+
+
         //
         // GET: /Institute/
 
+        //Controller For Fetching Institute Data From Database.
+
         public ActionResult Index()
         {
-            return View();
+            @ViewBag.CurrentPageLocation = "Institutes";
+            List<Institute> lstInstituteinfo = null;
+            try
+            {
+                _drInstitute = new DR_Institute();
+                lstInstituteinfo = _drInstitute.getInstitutes();
+
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            return View(lstInstituteinfo);
         }
+
+        //Controller For Inserting Institute Data Into Database.
+
         public ActionResult NewInstitute()
         {
             @ViewBag.CurrentPageLocation = "New Institute";
-            return View();
+            _drlocation = new DR_Location();
+            List<Location> locations = _drlocation.getLocations();
+            ViewBag.Locations = locations;
+            return View(new Institute());
         }
         [HttpPost]
         public ActionResult Create(Institute Institute, HttpPostedFileBase file, FormCollection postedForm)
@@ -48,6 +70,7 @@ namespace eera_web.Controllers
                 {
                     Institute.BannerImageAccess = Convert.ToString(postedForm["chkBannerAccess"]) == "on" ? true : false;
                 }
+
                 //insert into database
                 _drInstitute = new DR_Institute();
                 bool result = _drInstitute.CreateInstitute(Institute);
@@ -55,34 +78,16 @@ namespace eera_web.Controllers
                 //upload file
                 if (result && file != null)
                 {
-                    file.SaveAs(Server.MapPath(CategoryPath) + Institute.BannerImage);
+                    file.SaveAs(Server.MapPath(InstitutePath) + Institute.BannerImage);
                 }
             }
             catch (Exception ex)
             {
 
             }
-            return RedirectToAction("", "");
-        }
-        public ActionResult New()
-        {
-            return View();
-        }
-        public ActionResult Location()
-        {
-            //to get the Location institute
-            List<Institute> listins = null;
-            try
-            {
-                _drlocation = new DR_Location();
-                listins = _drlocation.getInstitutes();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return View(listins);
-        }
 
+            return RedirectToAction("NewInstitute", "Institute");
+        }
     }
 }
+
